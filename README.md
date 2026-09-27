@@ -20,8 +20,11 @@ Run `install.sh` or double-click `Install.command` on macOS. Use `./install.sh -
 
 `dependencies-v14.json` contains only dependencies that can be installed automatically from a direct/public Foundry-compatible manifest. Campaign packages that use them are distributed separately with their own installer.
 
-Current registry:
+Current auto-installable map-source dependencies:
 
-- **CZEPEKU Universe** — Foundry v14 verified. The module can be installed from its public manifest. Access to its map library still requires the user's Czepeku account/subscription.
+- **CZEPEKU Universe**
+- **Cartorium Archive**
+
+Provider accounts or subscriptions may still be required for provider-gated content; the dependency installer only installs the Foundry module itself.
 
 More auto-installable v14 dependencies can be appended as needed.
