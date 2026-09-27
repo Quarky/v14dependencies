@@ -116,7 +116,7 @@ install_manifest_module() {
     source="$extracted/$expected_id"
   else
     local found
-    found="$(find "$extracted" -maxdepth 4 -type f -name module.json -print -quit)"
+    found="$(find "$extracted" -type f -name module.json -print | head -n 1)"
     if [ -n "$found" ]; then source="$(dirname "$found")"; fi
   fi
 
