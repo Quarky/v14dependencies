@@ -15,6 +15,15 @@
       "manifest": "https://www.czepeku.com/fvtt-module.json",
       "verifiedFoundry": 14,
       "notes": "Module auto-installable from public manifest. Content access requires a Czepeku account/subscription."
+    },
+    {
+      "id": "cartorium-browser",
+      "name": "Cartorium Archive",
+      "role": "optional-map-source-browser",
+      "installMode": "manifest",
+      "manifest": "https://raw.githubusercontent.com/cartorium/Cartorium-assets/main/cartorium-browser/module.json",
+      "verifiedFoundry": 14,
+      "notes": "Auto-installable map browser with a free selection plus provider-gated content."
     }
   ]
 }
