@@ -2,7 +2,7 @@
   "id": "v14dependencies",
   "title": "Foundry V14 Dependencies",
   "description": "Dependency meta-module for the user's Foundry VTT v14 setup. Installing it prompts Foundry to install the registered v14 dependencies; it contains no campaign content.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "compatibility": {
     "minimum": "14",
     "verified": "14",
@@ -21,19 +21,12 @@
       {
         "id": "czepeku",
         "type": "module",
-        "manifest": "https://www.czepeku.com/fvtt-module.json",
-        "compatibility": {
-          "minimum": "14"
-        }
+        "manifest": "https://www.czepeku.com/fvtt-module.json"
       },
       {
         "id": "cartorium-browser",
         "type": "module",
-        "manifest": "https://raw.githubusercontent.com/cartorium/Cartorium-assets/main/cartorium-browser/module.json",
-        "compatibility": {
-          "minimum": "12",
-          "verified": "14"
-        }
+        "manifest": "https://raw.githubusercontent.com/cartorium/Cartorium-assets/main/cartorium-browser/module.json"
       }
     ]
   }
