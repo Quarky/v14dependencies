@@ -1,0 +1,41 @@
+name: Build V14 dependency installer
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "README.md"
+      - "dependencies-v14.json"
+      - "install.sh"
+      - "Install.command"
+      - ".github/workflows/build-dependencies.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate registry and package
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          data=json.loads(pathlib.Path("dependencies-v14.json").read_text())
+          assert data["foundry"]["generation"] == 14
+          assert data["purpose"] == "auto-installable Foundry VTT v14 dependencies only"
+          for pkg in data.get("packages", []):
+              assert pkg["installMode"] == "manifest"
+              assert pkg["id"]
+              assert pkg["manifest"].startswith("https://")
+          PY
+          chmod +x install.sh Install.command
+          mkdir -p dist
+          cp README.md dependencies-v14.json install.sh Install.command dist/
+          (cd dist && zip -qr ../v14dependencies-installer.zip .)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v14dependencies-installer
+          path: v14dependencies-installer.zip
