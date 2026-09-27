@@ -1,5 +1,6 @@
 {
-  "schema": 1,
+  "schema": 2,
+  "purpose": "auto-installable Foundry VTT v14 dependencies only",
   "foundry": {
     "generation": 14,
     "dataRoot": "/Users/somed/Library/Application Support/FoundryVTTV14",
@@ -12,47 +13,8 @@
       "role": "optional-map-source",
       "installMode": "manifest",
       "manifest": "https://www.czepeku.com/fvtt-module.json",
-      "notes": "Foundry v14-compatible provider/browser module. Content access requires the user's Czepeku account/subscription."
-    },
-    {
-      "id": "miskasmaps",
-      "name": "Miska's Maps - Battlemap Pack",
-      "role": "optional-map-source",
-      "installMode": "foundry-ui",
-      "foundryPackage": "https://foundryvtt.com/packages/miskasmaps",
-      "notes": "Foundry-exclusive content; install through Foundry Setup. Previously observed in the user's v14 module set."
-    },
-    {
-      "id": "moonlight-maps-free",
-      "name": "Moonlight Maps",
-      "role": "optional-map-source",
-      "installMode": "foundry-ui",
-      "foundryPackage": "https://foundryvtt.com/packages/moonlight-maps-free",
-      "notes": "Foundry-exclusive free collection; install through Foundry Setup."
-    },
-    {
-      "id": "tomcartos-into-the-wilds-maps",
-      "name": "Tom Cartos - Into the Wilds Maps",
-      "role": "optional-map-source",
-      "installMode": "manual-or-marketplace",
-      "foundryPackage": "https://foundryvtt.com/packages/tomcartos-into-the-wilds-maps",
-      "notes": "Useful for roads, coastline, frozen wilderness and travel encounters."
-    },
-    {
-      "id": "tomcartos-ostenwold",
-      "name": "Tom Cartos Ostenwold",
-      "role": "optional-map-source",
-      "installMode": "foundry-ui",
-      "foundryPackage": "https://foundryvtt.com/packages/tomcartos-ostenwold",
-      "notes": "Useful for town, winter-town, tavern and settlement substitutions."
-    },
-    {
-      "id": "mad-taverns",
-      "name": "The MAD Cartographer - Taverns",
-      "role": "optional-map-source",
-      "installMode": "manual-or-marketplace",
-      "foundryPackage": "https://foundryvtt.com/packages/mad-taverns",
-      "notes": "Useful as additive tavern/interior alternatives."
+      "verifiedFoundry": 14,
+      "notes": "Module auto-installable from public manifest. Content access requires a Czepeku account/subscription."
     }
   ]
 }
