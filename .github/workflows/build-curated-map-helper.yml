@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Validate manifest and package
+      - name: Validate and package
         run: |
           python - <<'PY'
           import json, pathlib
@@ -28,9 +28,20 @@ jobs:
           assert data["id"] == "northern-fjord-curated-maps-v14"
           assert data["compatibility"]["minimum"] == "14"
           assert pathlib.Path("northern-fjord-curated-maps-v14/scripts/curated-maps.js").exists()
+          deps = json.loads(pathlib.Path("dependencies-v14.json").read_text())
+          assert deps["foundry"]["generation"] == 14
           PY
+          chmod +x install.sh Install.command
           zip -qr northern-fjord-curated-maps-v14.zip northern-fjord-curated-maps-v14
+          mkdir -p dist/v14dependencies
+          cp -R northern-fjord-curated-maps-v14 dist/v14dependencies/
+          cp install.sh Install.command dependencies-v14.json README.md dist/v14dependencies/
+          (cd dist/v14dependencies && zip -qr ../v14dependencies-installer.zip .)
       - uses: actions/upload-artifact@v4
         with:
           name: northern-fjord-curated-maps-v14
           path: northern-fjord-curated-maps-v14.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v14dependencies-installer
+          path: dist/v14dependencies-installer.zip
