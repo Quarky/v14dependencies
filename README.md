@@ -1,72 +1,27 @@
 # Foundry V14 Dependencies
 
-Running dependency and curated-map installer repository for Foundry VTT v14.
+This repository is only for **automatic dependency installation and updating** for the user's Foundry VTT v14 setup.
 
-Default local Foundry data root used by the installer:
+It does **not** contain campaign modules, curated map modules, adventures, actors, PCs, or campaign assets.
+
+Default Foundry v14 root:
 
 `/Users/somed/Library/Application Support/FoundryVTTV14`
 
-Modules directory:
+Default modules directory:
 
 `/Users/somed/Library/Application Support/FoundryVTTV14/Data/modules`
 
-## Current bundled utility
+## Usage
 
-### Skyhorn curated additive maps
+Run `install.sh` or double-click `Install.command` on macOS. Use `./install.sh --update` to refresh registered dependencies.
 
-Internal module ID:
+## Registry
 
-`northern-fjord-curated-maps-v14`
+`dependencies-v14.json` contains only dependencies that can be installed automatically from a direct/public Foundry-compatible manifest. Campaign packages that use them are distributed separately with their own installer.
 
-Visible title:
+Current registry:
 
-**Skyhorn — Curated Additive Maps**
+- **CZEPEKU Universe** — Foundry v14 verified. The module can be installed from its public manifest. Access to its map library still requires the user's Czepeku account/subscription.
 
-The module is intentionally additive and non-destructive:
-
-- Does not delete or replace existing campaign maps.
-- Does not overwrite the main Skyhorn/Northern Fjord campaign module.
-- Scans installed Scene compendia from supported map-source modules.
-- Scores only Skyhorn/Northern Fjord-relevant maps.
-- Imports selected scenes into a separate **Skyhorn — Curated Additive Maps** folder.
-- Stores source UUID flags and skips already imported maps.
-- Uses per-pack and per-scene try/catch so one broken source pack cannot stop the rest.
-- Provides GM macros for preview, import, and dependency/source reporting.
-
-The curated terms cover the campaign locations already established in the project: fjord harbor, docks, ships, taverns/inns, lighthouse/towers, cliffs/coast, sea caves, fishing settlements, roads/mountain passes, frozen ruins, tide pools/shoreline, shrines, guard/barracks, smuggler sites, ice fields, and underwater/reef encounters.
-
-## Running dependency installer
-
-Run:
-
-```bash
-chmod +x install.sh
-./install.sh
-```
-
-or double-click `Install.command` on macOS.
-
-The installer:
-
-1. Installs/updates the local curated-map module from this checkout using a staged move.
-2. Checks the configured v14 map-source packages.
-3. Automatically installs public-manifest dependencies when safe to do so.
-4. Reports Foundry-exclusive / Marketplace / subscription-gated packages that must be installed through their normal provider or Foundry Setup UI.
-5. Never removes unrelated modules.
-
-Use `./install.sh --update` to refresh auto-installable dependencies that are already present.
-
-## Source registry
-
-The running source list is in `dependencies-v14.json`.
-
-Current Skyhorn-relevant source families include:
-
-- CZEPEKU Universe
-- Miska's Maps
-- Moonlight Maps
-- Tom Cartos Into the Wilds
-- Tom Cartos Ostenwold
-- The MAD Cartographer tavern packs
-
-More v14-compatible source modules can be added to the JSON registry and importer without changing the existing campaign maps.
+More auto-installable v14 dependencies can be appended as needed.
