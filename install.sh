@@ -4,7 +4,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 REGISTRY="$SCRIPT_DIR/dependencies-v14.json"
 DEFAULT_ROOT="$HOME/Library/Application Support/FoundryVTTV14"
-FOUNDRY_ROOT="\${FOUNDRY_V14_ROOT:-$DEFAULT_ROOT}"
+FOUNDRY_ROOT="${FOUNDRY_V14_ROOT:-$DEFAULT_ROOT}"
 MODULES_DIR="$FOUNDRY_ROOT/Data/modules"
 UPDATE=0
 
@@ -43,7 +43,7 @@ command -v python3 >/dev/null 2>&1 || fail "python3 is required."
 [ -f "$REGISTRY" ] || fail "Missing dependency registry: $REGISTRY"
 
 mkdir -p "$MODULES_DIR"
-TMP_ROOT="$(mktemp -d "\${TMPDIR:-/tmp}/v14dependencies.XXXXXX")"
+TMP_ROOT="$(mktemp -d "${TMPDIR:-/tmp}/v14dependencies.XXXXXX")"
 trap 'rm -rf "$TMP_ROOT"' EXIT
 
 json_field() {
@@ -75,7 +75,7 @@ install_manifest_module() {
     return 0
   fi
 
-  local work="$TMP_ROOT/\${expected_id}-download"
+  local work="$TMP_ROOT/${expected_id}-download"
   mkdir -p "$work"
   local manifest="$work/module.json"
 
@@ -132,7 +132,7 @@ install_manifest_module() {
     return 0
   fi
 
-  local stage="$TMP_ROOT/\${expected_id}-stage"
+  local stage="$TMP_ROOT/${expected_id}-stage"
   rm -rf "$stage"
   mv "$source" "$stage"
 
