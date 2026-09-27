@@ -1,0 +1,36 @@
+name: Build curated map helper
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "northern-fjord-curated-maps-v14/**"
+      - "install.sh"
+      - "Install.command"
+      - "dependencies-v14.json"
+      - ".github/workflows/build-curated-map-helper.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate manifest and package
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p = pathlib.Path("northern-fjord-curated-maps-v14/module.json")
+          data = json.loads(p.read_text())
+          assert data["id"] == "northern-fjord-curated-maps-v14"
+          assert data["compatibility"]["minimum"] == "14"
+          assert pathlib.Path("northern-fjord-curated-maps-v14/scripts/curated-maps.js").exists()
+          PY
+          zip -qr northern-fjord-curated-maps-v14.zip northern-fjord-curated-maps-v14
+      - uses: actions/upload-artifact@v4
+        with:
+          name: northern-fjord-curated-maps-v14
+          path: northern-fjord-curated-maps-v14.zip
