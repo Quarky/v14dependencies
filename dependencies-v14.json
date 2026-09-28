@@ -24,6 +24,24 @@
       "manifest": "https://raw.githubusercontent.com/cartorium/Cartorium-assets/main/cartorium-browser/module.json",
       "verifiedFoundry": 14,
       "notes": "Auto-installable map browser with a free selection plus provider-gated content."
+    },
+    {
+      "id": "complete-card-management",
+      "name": "Complete Card Management",
+      "role": "card-canvas-and-table-management",
+      "installMode": "manifest",
+      "manifest": "https://github.com/MetaMorphic-Digital/complete-card-management/releases/download/v3.0.3/module.json",
+      "verifiedFoundry": 14,
+      "notes": "Version 3.0.3; system agnostic. Requires Foundry 14.365 or newer. Suitable for D&D5e 5.3.3 on Foundry v14."
+    },
+    {
+      "id": "card-hands-list",
+      "name": "Card Hands List",
+      "role": "card-hand-ui",
+      "installMode": "manifest",
+      "manifest": "https://github.com/kristianserrano/card-hands-list/releases/download/2.2.7/module.json",
+      "verifiedFoundry": 14,
+      "notes": "Version 2.2.7; system agnostic. Foundry 13-14, verified 14. Suitable for D&D5e 5.3.3 on Foundry v14 and integrates with Complete Card Management."
     }
   ]
 }

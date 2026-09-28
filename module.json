@@ -2,7 +2,7 @@
   "id": "v14dependencies",
   "title": "Foundry V14 Dependencies",
   "description": "Dependency meta-module for the user's Foundry VTT v14 setup. Installing it prompts Foundry to install the registered v14 dependencies; it contains no campaign content.",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "compatibility": {
     "minimum": "14",
     "verified": "14",
@@ -27,6 +27,16 @@
         "id": "cartorium-browser",
         "type": "module",
         "manifest": "https://raw.githubusercontent.com/cartorium/Cartorium-assets/main/cartorium-browser/module.json"
+      },
+      {
+        "id": "complete-card-management",
+        "type": "module",
+        "manifest": "https://github.com/MetaMorphic-Digital/complete-card-management/releases/download/v3.0.3/module.json"
+      },
+      {
+        "id": "card-hands-list",
+        "type": "module",
+        "manifest": "https://github.com/kristianserrano/card-hands-list/releases/download/2.2.7/module.json"
       }
     ]
   }
