@@ -1,0 +1,45 @@
+name: Package V13 Dependencies
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'v13/**'
+      - '!v13/v13dependencies.zip'
+      - '.github/workflows/build-v13-dependencies.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate JSON and syntax
+        run: |
+          python3 -m json.tool v13/module.json >/dev/null
+          python3 -m json.tool v13/dependencies-v13.json >/dev/null
+          python3 -m py_compile v13/dependency_manager.py v13/export_modules.py
+          bash -n v13/install.sh v13/Install.command v13/Export-Module-Inventory.command
+      - name: Package independent V13 module ZIP
+        run: |
+          python3 - <<'PY'
+          import pathlib, zipfile
+          root = pathlib.Path('v13')
+          names = ['module.json','dependencies-v13.json','dependency_manager.py','install.sh','Install.command','export_modules.py','Export-Module-Inventory.command','README.md']
+          with zipfile.ZipFile(root/'v13dependencies.zip','w',compression=zipfile.ZIP_DEFLATED,compresslevel=9) as z:
+              for name in names:
+                  file = root/name
+                  info = zipfile.ZipInfo('v13dependencies/'+name)
+                  info.external_attr = ((0o755 if file.suffix in ('.sh','.command') else 0o644)<<16)
+                  info.compress_type = zipfile.ZIP_DEFLATED
+                  z.writestr(info,file.read_bytes())
+          PY
+      - name: Commit distributable ZIP for Foundry setup
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add v13/v13dependencies.zip
+          if ! git diff --cached --quiet; then
+            git commit -m "Build V13 dependency module ZIP"
+            git push
+          fi
