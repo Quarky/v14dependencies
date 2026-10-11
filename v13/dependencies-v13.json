@@ -1,0 +1,67 @@
+{
+  "schema": 2,
+  "purpose": "V13-compatible, pinned dependencies mirrored from Quarky/v14dependencies; no campaigns or system modules",
+  "foundry": {
+    "generation": 13,
+    "dataRoot": "~/Library/Application Support/FoundryVTT",
+    "modulesDir": "~/Library/Application Support/FoundryVTT/Data/modules"
+  },
+  "packages": [
+    {
+      "id": "czepeku",
+      "name": "CZEPEKU Universe",
+      "v14Version": "1.0.0",
+      "v13Version": "1.0.0",
+      "role": "optional-map-source",
+      "installMode": "manifest",
+      "manifest": "https://www.czepeku.com/fvtt-module.json",
+      "expectedVersion": "1.0.0",
+      "foundryMinimum": "12",
+      "foundryMaximum": "14",
+      "verifiedFoundry": 14,
+      "notes": "Foundry 12-14. Requires active Czepeku website subscription; publisher-hosted manifest version checked."
+    },
+    {
+      "id": "cartorium-browser",
+      "name": "Cartorium Archive",
+      "v14Version": "1.0.8",
+      "v13Version": "1.0.8",
+      "role": "optional-map-source-browser",
+      "installMode": "manifest",
+      "manifest": "https://raw.githubusercontent.com/cartorium/Cartorium-assets/main/cartorium-browser/module.json",
+      "expectedVersion": "1.0.8",
+      "foundryMinimum": "13",
+      "foundryMaximum": "14",
+      "verifiedFoundry": 14,
+      "notes": "Foundry 13-14. Moving publisher manifest guarded against future V14-only updates."
+    },
+    {
+      "id": "complete-card-management",
+      "name": "Complete Card Management",
+      "v14Version": "3.0.3",
+      "v13Version": "2.1.2",
+      "role": "card-canvas-and-table-management",
+      "installMode": "manifest",
+      "manifest": "https://github.com/MetaMorphic-Digital/complete-card-management/releases/download/v2.1.2/module.json",
+      "expectedVersion": "2.1.2",
+      "foundryMinimum": "13.351",
+      "foundryMaximum": "13",
+      "verifiedFoundry": 13,
+      "notes": "V13 release requires Foundry 13.351+. Do not replace with V14-only 3.0.3."
+    },
+    {
+      "id": "card-hands-list",
+      "name": "Card Hands List",
+      "v14Version": "2.2.7",
+      "v13Version": "2.2.7",
+      "role": "card-hand-ui",
+      "installMode": "manifest",
+      "manifest": "https://github.com/kristianserrano/card-hands-list/releases/download/2.2.7/module.json",
+      "expectedVersion": "2.2.7",
+      "foundryMinimum": "13",
+      "foundryMaximum": "14",
+      "verifiedFoundry": 14,
+      "notes": "Foundry 13-14. System-agnostic; CCM integration."
+    }
+  ]
+}
