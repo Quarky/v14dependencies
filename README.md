@@ -35,9 +35,11 @@ More auto-installable v14 dependencies can be appended as needed.
 
 ## Foundry V13 companion (separate)
 
-A separate **Foundry V13 Dependencies** module is maintained under [`v13/`](./v13/README.md), with its own `v13dependencies` module ID, V13-compatible pinned manifest URLs, ZIP, safe no-argument installer, and JSON exporter for all installed V13/V14 modules. It installs into `~/Library/Application Support/FoundryVTT/Data/modules`, **not** the V14 data folder. The V14 dependency registry and manifest here at the repository root remain unchanged.
+The V13 dependencies project has its **own repository**: [Quarky/V13dependencies](https://github.com/Quarky/V13dependencies), with a V13 manifest, pinned dependency registry, installer, and module inventory exporter.
 
-- [V13 dependency registry](./v13/dependencies-v13.json)
-- [V13 module manifest](./v13/module.json)
-- [V13 module ZIP](./v13/v13dependencies.zip)
-- [Export installed V13 and V14 modules to JSON](./v13/export_modules.py)
+- [V13 manifest](https://raw.githubusercontent.com/Quarky/V13dependencies/main/module.json)
+- [V13 registry](https://github.com/Quarky/V13dependencies/blob/main/dependencies-v13.json)
+- [V13 ZIP](https://github.com/Quarky/V13dependencies/blob/main/v13dependencies.zip)
+- [V13/V14 installed-module JSON exporter](https://github.com/Quarky/V13dependencies/blob/main/export_modules.py)
+
+**The older `v13/` subfolder in this repository is superseded; use Quarky/V13dependencies as the canonical V13 source.** V14 installers continue to use only the V14 files at this repository's root.
