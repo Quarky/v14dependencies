@@ -1,0 +1,43 @@
+{
+  "id": "v13dependencies",
+  "title": "Foundry V13 Dependencies",
+  "description": "Foundry v13 dependency meta-module with pinned V13-compatible add-ons. No campaign content.",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13",
+    "maximum": "13"
+  },
+  "authors": [
+    {
+      "name": "Quarky"
+    }
+  ],
+  "url": "https://github.com/Quarky/v14dependencies/tree/main/v13",
+  "manifest": "https://raw.githubusercontent.com/Quarky/v14dependencies/main/v13/module.json",
+  "download": "https://raw.githubusercontent.com/Quarky/v14dependencies/main/v13/v13dependencies.zip",
+  "relationships": {
+    "requires": [
+      {
+        "id": "czepeku",
+        "type": "module",
+        "manifest": "https://www.czepeku.com/fvtt-module.json"
+      },
+      {
+        "id": "cartorium-browser",
+        "type": "module",
+        "manifest": "https://raw.githubusercontent.com/cartorium/Cartorium-assets/main/cartorium-browser/module.json"
+      },
+      {
+        "id": "complete-card-management",
+        "type": "module",
+        "manifest": "https://github.com/MetaMorphic-Digital/complete-card-management/releases/download/v2.1.2/module.json"
+      },
+      {
+        "id": "card-hands-list",
+        "type": "module",
+        "manifest": "https://github.com/kristianserrano/card-hands-list/releases/download/2.2.7/module.json"
+      }
+    ]
+  }
+}
